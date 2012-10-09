@@ -14,6 +14,7 @@ group :test do
   gem 'database_cleaner'
   gem "capybara", ">= 0.4.0"
   gem 'fabrication'
+  gem 'faker'
   gem 'guard-rspec'
   gem 'rspec-rails'
 end
