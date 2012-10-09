@@ -1,4 +1,8 @@
 = form_for [:admin, post] do |f|
+
+  - unless post.errors.blank?
+    .errors
+      = post.errors.full_messages.join(", ")
   = f.label :title
   = f.text_field :title
   
