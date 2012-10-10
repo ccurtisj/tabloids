@@ -2,18 +2,17 @@ module Tabloids
   class Admin::PostsController < ApplicationController
     layout 'tabloids'
   
-    responders :collection, :flash
+    responders :flash
     respond_to :html
   
-    before_filter :load_post, :only => [:edit, :update]
+    before_filter :load_post, :only => [:edit, :update, :destroy]
   
     def create
       @post = Post.create(params[:post])
-      respond_with(:admin, @post)
+      respond_with(:admin, @post, :location => admin_posts_path)
     end
   
     def edit
-    
     end
   
     def index
@@ -26,7 +25,12 @@ module Tabloids
   
     def update
       @post.update_attributes(params[:post])
-      respond_with(:admin, @post)
+      respond_with(:admin, @post, :location => admin_posts_path)
+    end
+    
+    def destroy
+      @post.destroy
+      respond_with(:admin, @post, :location => admin_posts_path)
     end
   
     private

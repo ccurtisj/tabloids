@@ -1,4 +1,4 @@
-= form_for [:admin, post] do |f|
+= form_for post, :as => :post, :url => admin_posts_path do |f|
 
   - unless post.errors.blank?
     .errors

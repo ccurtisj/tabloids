@@ -1,3 +1,6 @@
 %h1 Edit post
 
 = render :partial => 'form', :locals => {:post => @post}
+
+= form_tag :url => admin_post_path(@post) do
+  = submit_tag
