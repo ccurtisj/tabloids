@@ -2,5 +2,5 @@
 
 = render :partial => 'form', :locals => {:post => @post}
 
-= form_tag :url => admin_post_path(@post) do
-  = submit_tag
+= form_for @post, :as => :post, :url => admin_post_path(@post), :method => :delete do |f|
+  = f.submit 'Delete'
