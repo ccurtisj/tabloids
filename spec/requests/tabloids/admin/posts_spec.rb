@@ -6,7 +6,6 @@ module Tabloids
     
     describe "GET /admin/posts" do
       it "displays posts" do
-        # post = Fabricate(:post)
         post = Tabloids::Post.create!(:title => 'lorem', :content => "ipsum")
         visit admin_posts_path
         page.should have_content(post.title)

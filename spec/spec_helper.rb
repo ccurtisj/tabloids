@@ -16,20 +16,12 @@ require 'capybara/rails'
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
 
-
-
 require 'rspec/rails'
 
-# require 'tabloids'
-
-# require 'capybara/rspec'
 require 'mongoid'
 require 'database_cleaner'
 require 'fabrication'
 require 'faker'
-
-
-
 
 RSpec.configure do |config|
   
@@ -46,4 +38,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+end
+
+Fabrication.configure do |config|
+  config.path_prefix = Tabloids::Engine.root
 end
