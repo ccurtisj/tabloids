@@ -1,0 +1,6 @@
+%h1 All Posts
+- @posts.each do |post|
+  %article
+    %h2= link_to post.title, edit_admin_post_path(post)
+    %p
+      = truncate(post.content, :length => 200, :omission => '...')
