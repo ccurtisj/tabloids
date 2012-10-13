@@ -6,4 +6,5 @@ end
 
 require 'haml'
 require 'mongoid'
+require 'mongoid-simple-tags'
 require 'responders'

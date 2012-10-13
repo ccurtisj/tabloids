@@ -1,6 +1,7 @@
 module Tabloids
   class Post
     include Mongoid::Document
+    include Mongoid::Document::Taggable
     include Mongoid::Timestamps
   
     field :published,     :type => Boolean, :default => false

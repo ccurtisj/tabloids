@@ -32,6 +32,11 @@
           
       .row-fluid
         .span2
+          - if all_post_tags.any?
+            %h2 Tags
+            %ul
+              - all_post_tags.each do |tag| 
+                %ul= tag
         .span10
           = yield
     

@@ -36,6 +36,22 @@ module Tabloids
           response.should render_template('new')
         end
       end
+    
+      context "with tags" do
+        before { post :create, 
+          :post => {
+            :title => 'foo', 
+            :content => 'bar',
+            :tag_list => 'apple, orange, banana'
+          }
+        }
+        
+        subject { Post.last }
+        
+        its(:tags) { should include('apple') }
+        its(:tags) { should include('orange') }
+        its(:tags) { should include('banana') }
+      end
     end
     
     describe "#destroy" do

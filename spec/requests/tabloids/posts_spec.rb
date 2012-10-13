@@ -26,6 +26,16 @@ describe "Posts" do
         page.should_not have_content(unpublished.title)
       end
     end
+    
+    context "with tags" do
+      before { post1.update_attributes(:tag_list => 'apple, banana') }
+      
+      it "displays the tag list" do
+        visit posts_path
+        page.should have_content 'apple'
+        page.should have_content 'banana'
+      end
+    end
   end
   
   describe "GET /posts/:token" do

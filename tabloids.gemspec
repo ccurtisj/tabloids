@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.add_dependency('haml')
   s.add_dependency('mongoid', '>= 3.0')
   s.add_dependency('responders')
+  s.add_dependency('mongoid-simple-tags')
 end
