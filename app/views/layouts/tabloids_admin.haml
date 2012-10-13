@@ -20,6 +20,7 @@
     %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet"}
     %link{:href => "/css/bootstrap-responsive.min.css", :rel => "stylesheet"}
     = stylesheet_link_tag "/css/jquery.tagit.css"
+    = stylesheet_link_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css"
   %body
     /[if lt IE 7]
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -39,6 +40,9 @@
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"
     = javascript_include_tag "/js/bootstrap.min.js"
     = javascript_include_tag "/js/tag-it.js"
+    = javascript_include_tag "/js/tabloids.js"
+    
+    = yield :javascript
 
     :javascript
       window.jQuery || document.write('<\/script>')

@@ -15,8 +15,12 @@
   = f.check_box :published
   
   %br/
-  = f.label :tag_list
-  = f.text_field :tag_list
+  = f.text_field(:tag_list, 'data-all-tags' => all_post_tags_json)
   
   %br/
   = f.submit
+  
+- content_for :javascript do
+  :javascript
+    var availableTags = JSON.parse($('#post_tag_list').attr('data-all-tags'));
+    $(function(){ Tabloids.posts.edit.init(availableTags); })
