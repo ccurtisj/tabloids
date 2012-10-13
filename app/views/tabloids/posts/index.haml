@@ -3,5 +3,5 @@
   %article
     %h2= link_to post.title, post_path(post.url_friendly_token)
     %p
-      = truncate(post.content, :length => 200, :omission => '...')
+      = truncate(post.content, :length => 200, :omission => '...').html_safe
       = link_to 'read more', post_path(post)

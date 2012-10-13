@@ -7,7 +7,9 @@ var Tabloids = {
           fieldName : 'post_tag_list',
           availableTags : availableTags
         });
+        
+        $('#post_content').wysiwyg();
       }
     }
-  } 
+  }
 }
