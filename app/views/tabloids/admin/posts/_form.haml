@@ -1,4 +1,5 @@
-= form_for post, :as => :post, :url => admin_posts_path do |f|
+- url = post.persisted? ? admin_post_path(post) : admin_posts_path
+= form_for post, :as => :post, :url => url do |f|
 
   - unless post.errors.blank?
     .errors
@@ -8,6 +9,10 @@
   
   = f.label :content
   = f.text_area :content
+  
+  %br/
+  = f.label :published
+  = f.check_box :published
   
   %br/
   = f.submit

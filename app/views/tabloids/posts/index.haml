@@ -1,6 +1,7 @@
 %h1 All Posts
 - @posts.each do |post|
   %article
-    %h2= link_to post.title, edit_admin_post_path(post)
+    %h2= link_to post.title, post_path(post.url_friendly_token)
     %p
       = truncate(post.content, :length => 200, :omission => '...')
+      = link_to 'read more', post_path(post)

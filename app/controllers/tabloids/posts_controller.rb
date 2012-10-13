@@ -1,19 +1,20 @@
 module Tabloids
   class PostsController < ApplicationController
     layout 'tabloids'
-  
-    # respond_to :html
-    #   
-    # before_filter :load_post, :only => [:edit, :update, :destroy]
+   
+    before_filter :load_post, :only => [:show]
   
     def index
-      @posts = Post.all
+      @posts = Post.published
+    end
+    
+    def show
     end
   
     private
   
     def load_post
-      @post = Post.find(params[:id])
+      @post = Post.for_token(params[:id]) || Post.find(params[:id])
     end
   end
 end
