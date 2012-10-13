@@ -1,6 +1,6 @@
 module Tabloids
   class Admin::PostsController < ApplicationController
-    layout 'tabloids'
+    layout 'tabloids_admin'
   
     responders :flash
     respond_to :html

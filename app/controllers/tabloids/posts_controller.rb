@@ -1,6 +1,6 @@
 module Tabloids
   class PostsController < ApplicationController
-    layout 'tabloids'
+    layout 'tabloids_public'
    
     before_filter :load_post, :only => [:show]
   
