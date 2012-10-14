@@ -32,6 +32,12 @@
           
       .row-fluid
         .span2
+          - if Tabloids::Category.count > 0
+            %h2 Categories
+            %ul
+              - Tabloids::Category.all.each do |category| 
+                %ul= category.name
+          
           - if all_post_tags.any?
             %h2 Tags
             %ul

@@ -2,3 +2,7 @@
   padding: 5px;
   background: #FEFEFE;
 }
+
+textarea {
+  width:auto;
+}

@@ -36,6 +36,15 @@ describe "Posts" do
         page.should have_content 'banana'
       end
     end
+    
+    context "with categories" do
+      let!(:category) { Fabricate(:category) }
+      
+      it "displays the category list" do
+        visit posts_path
+        page.should have_content category.name
+      end
+    end
   end
   
   describe "GET /posts/:token" do

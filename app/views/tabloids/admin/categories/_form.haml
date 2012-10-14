@@ -1,0 +1,12 @@
+- url = category.persisted? ? admin_category_path(category) : admin_categories_path
+= form_for category, :as => :category, :url => url do |f|
+
+  - unless category.errors.blank?
+    .errors
+      = category.errors.full_messages.join(", ")
+      
+  = f.label :name
+  = f.text_field :name
+  
+  %br/
+  = f.submit

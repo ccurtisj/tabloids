@@ -6,6 +6,7 @@ routes = lambda {
   
     namespace :admin do
       resources :posts
+      resources :categories
     end
   end
 }

@@ -1,0 +1,6 @@
+%h1 Edit Category
+
+= render :partial => 'form', :locals => {:category => @category}
+
+= form_for @category, :as => :category, :url => admin_category_path(@category), :method => :delete do |f|
+  = f.submit 'Delete'

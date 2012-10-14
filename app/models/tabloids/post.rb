@@ -13,6 +13,8 @@ module Tabloids
     field :published_at,  :type => Time
     
     scope :published, where(:published => true)
+    
+    belongs_to :category
   
     validates_presence_of :title
     validates_presence_of :content
