@@ -58,4 +58,18 @@ describe "Posts" do
     it { should have_content(post.title) }
     it { should have_content(post.content) }
   end
+  
+  describe "GET /categories/:category_guid" do
+    
+    let!(:category) { Fabricate(:category) }
+    let!(:post_in_category) { Fabricate(:post, :category => category) }
+    let!(:other_post) { Fabricate(:post) }
+    
+    before { visit category_path(category.guid) }
+    
+    subject { page }
+    
+    it { should have_content(post_in_category.title) }
+    it { should_not have_content other_post.title }
+  end
 end

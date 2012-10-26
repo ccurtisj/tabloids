@@ -1,13 +1,13 @@
 routes = lambda {
   scope :module => "tabloids" do
-  # namespace :tabloids do
     
-    resources :posts
-  
+    match '/categories/:category_guid', :to => 'posts#index', :as => 'category'
+    
     namespace :admin do
       resources :posts
       resources :categories
     end
+    resources :posts
   end
 }
 

@@ -1,4 +1,4 @@
-%h1 All Posts
+%h1= @category.present? ? @category.name : "All Posts"
 - @posts.each do |post|
   %article
     %h2= link_to post.title, post_path(post.url_friendly_token)

@@ -36,7 +36,7 @@
             %h2 Categories
             %ul
               - Tabloids::Category.all.each do |category| 
-                %ul= category.name
+                %ul= link_to category.name, category_path(category.guid)
           
           - if all_post_tags.any?
             %h2 Tags
