@@ -4,11 +4,13 @@ module Tabloids
     layout 'tabloids_public'
     
     before_filter :load_category, :only => [:index]
-    before_filter :load_post, :only => [:show]
+    before_filter :load_tag,      :only => [:index]
+    before_filter :load_post,     :only => [:show]
     
     def index
       @posts = Post.published
       @posts = @posts.for_category(@category) if @category
+      @posts = @posts.tagged_with(@tag) if @tag.present?
     end
     
     def show
@@ -23,6 +25,10 @@ module Tabloids
     
     def load_post
       @post = Post.for_token(params[:id]) || Post.find(params[:id])
+    end
+    
+    def load_tag
+      @tag = params[:tag]
     end
   end
 end

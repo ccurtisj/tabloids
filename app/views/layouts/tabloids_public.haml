@@ -42,7 +42,7 @@
             %h2 Tags
             %ul
               - all_post_tags.each do |tag| 
-                %ul= tag
+                %ul= link_to tag, tag_path(tag)
         .span10
           = yield
     

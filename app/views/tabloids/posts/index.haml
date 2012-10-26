@@ -1,4 +1,4 @@
-%h1= @category.present? ? @category.name : "All Posts"
+%h1= header_for_posts_index(:category => @category, :tag => @tag)
 - @posts.each do |post|
   %article
     %h2= link_to post.title, post_path(post.url_friendly_token)

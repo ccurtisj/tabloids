@@ -2,6 +2,7 @@ routes = lambda {
   scope :module => "tabloids" do
     
     match '/categories/:category_guid', :to => 'posts#index', :as => 'category'
+    match '/tags/:tag', :to => 'posts#index', :as => 'tag'
     
     namespace :admin do
       resources :posts

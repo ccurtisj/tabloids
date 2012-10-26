@@ -7,5 +7,15 @@ module Tabloids
     def all_post_tags_json
       all_post_tags.to_json
     end
+    
+    def header_for_posts_index(options = {})
+      if options[:category]
+        options[:category].name
+      elsif options[:tag]
+        options[:tag].capitalize
+      else
+        "All Posts"
+      end
+    end
   end
 end

@@ -72,4 +72,17 @@ describe "Posts" do
     it { should have_content(post_in_category.title) }
     it { should_not have_content other_post.title }
   end
+  
+  describe "GET /tags/:tag" do
+    
+    let!(:post_with_tag)  { Fabricate(:post, :tag_list => 'foo') }
+    let!(:other_post)     { Fabricate(:post, :tag_list => 'bar') }
+    
+    before { visit tag_path('foo') }
+    
+    subject { page }
+    
+    it { should have_content(post_with_tag.title) }
+    it { should_not have_content other_post.title }
+  end
 end
