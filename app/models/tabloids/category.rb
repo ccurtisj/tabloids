@@ -20,7 +20,7 @@ module Tabloids
     private
     
     def update_the_guid
-      self.guid = self.name.downcase.gsub(/\s+/, '-')
+      self.guid = self.name.downcase.gsub(/&/, '').gsub(/\s+/, '-')
     end
   end
 end
