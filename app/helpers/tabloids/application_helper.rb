@@ -1,7 +1,7 @@
 module Tabloids
   module ApplicationHelper
     def all_post_tags
-      @all_post_tags ||= Post.all_tags.collect{|tag_hash| tag_hash[:name]}.flatten
+      @all_post_tags ||= load_all_tags
     end
     
     def all_post_tags_json
@@ -16,6 +16,13 @@ module Tabloids
       else
         "All Posts"
       end
+    end
+    
+    private
+    
+    def load_all_tags
+      Post.count < 1 ? [] : 
+      Post.all_tags.collect{|tag_hash| tag_hash[:name]}.flatten
     end
   end
 end
