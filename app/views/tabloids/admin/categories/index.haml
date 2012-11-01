@@ -4,4 +4,6 @@
 
 %ul
   - @categories.each do |category|
-    %li= link_to category.name, edit_admin_category_path(category)
+    %li
+      = link_to category.name, edit_admin_category_path(category)
+      = "[#{category.guid}]"
