@@ -13,12 +13,14 @@ module Tabloids
     field :published_at,  :type => Time
     
     scope :for_category, ->(category){ where(:category_id => category.id) }
+    scope :newest_first, desc(:published_on)
     scope :published, where(:published => true)
     
     belongs_to :category
   
     validates_presence_of :title
     validates_presence_of :content
+    validates_uniqueness_of :title
     
     before_save :update_published_at
     before_save :generate_url_friendly_token
