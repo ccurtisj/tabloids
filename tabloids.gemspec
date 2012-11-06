@@ -1,4 +1,5 @@
 Gem::Specification.new do |s|
+  s.author = 'Christopher Curtis'
   s.name = "tabloids"
   s.summary = "A no-hassle Mongoid blog engine for Rails."
   s.description = "A no-hassle Mongoid blog engine for Rails."
