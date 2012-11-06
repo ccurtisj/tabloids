@@ -1,5 +1,5 @@
 module Tabloids
-  class PostsController < ApplicationController
+  class ::Tabloids::PostsController < ApplicationController
     
     layout 'tabloids_public'
     

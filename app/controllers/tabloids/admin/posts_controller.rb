@@ -1,5 +1,5 @@
 module Tabloids
-  class Admin::PostsController < ApplicationController
+  class ::Tabloids::Admin::PostsController < ApplicationController
     layout 'tabloids_admin'
   
     responders :flash
