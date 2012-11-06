@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name = "tabloids"
   s.summary = "A no-hassle Mongoid blog engine for Rails."
   s.description = "A no-hassle Mongoid blog engine for Rails."
-  s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.rdoc"]
+  s.files = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile"]
   s.version = "0.0.1"
   
   s.add_dependency "rails", "~> 3.2.8"
