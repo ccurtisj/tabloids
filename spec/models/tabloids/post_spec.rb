@@ -44,5 +44,13 @@ module Tabloids
         end
       end
     end
+
+    describe "generating the url-friendly-token" do
+
+      context "given slashes in the title" do
+        subject { Fabricate(:post, :title => "here is my //\\ title").url_friendly_token }
+        it { should eq "here-is-my-title" }
+      end
+    end
   end
 end

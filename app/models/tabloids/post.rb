@@ -33,7 +33,7 @@ module Tabloids
     
     def generate_url_friendly_token
       if self.published && self.url_friendly_token.blank?
-        self.url_friendly_token = self.title.gsub(' ', '-').gsub(/\.|!|,|:/, "")
+        self.url_friendly_token = self.title.gsub(/\.|!|,|:|\/|\\/, "").gsub(/\s+/, '-')
       end
     end
     
