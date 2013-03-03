@@ -31,8 +31,9 @@ module Tabloids
 
     protected
 
+    # Needs a better name
     def new_url_friendly_token
-      self.title.gsub(/\.|!|,|:|\/|\\/, "").gsub(/\s+/, '-')
+      self.title.gsub(/\.|!|,|:|\/|\\|"|'/, "").gsub(/\s+/, '-')
     end
     
     private
