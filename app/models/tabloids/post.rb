@@ -28,12 +28,18 @@ module Tabloids
     def self.for_token(token)
       self.where(:url_friendly_token => token).first
     end
-    
+
     protected
+
+    def new_url_friendly_token
+      self.title.gsub(/\.|!|,|:|\/|\\/, "").gsub(/\s+/, '-')
+    end
+    
+    private
     
     def generate_url_friendly_token
       if self.published && self.url_friendly_token.blank?
-        self.url_friendly_token = self.title.gsub(/\.|!|,|:|\/|\\/, "").gsub(/\s+/, '-')
+        self.url_friendly_token = self.new_url_friendly_token
       end
     end
     
