@@ -56,6 +56,11 @@ module Tabloids
         subject { Fabricate(:post, :title => "here is 'my' \"title\"").url_friendly_token }
         it { should eq "here-is-my-title" }
       end
+
+      context "given a question mark in the title" do
+        subject { Fabricate(:post, :title => "here is my title?").url_friendly_token }
+        it { should eq "here-is-my-title" }
+      end
     end
   end
 end

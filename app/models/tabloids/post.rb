@@ -33,7 +33,7 @@ module Tabloids
 
     # Needs a better name
     def new_url_friendly_token
-      self.title.downcase.gsub(/\.|!|,|:|\/|\\|"|'/, "").gsub(/\s+/, '-')
+      self.title.downcase.gsub(/\.|!|,|:|\/|\\|"|'|\?/, "").gsub(/\s+/, '-')
     end
 
     private
