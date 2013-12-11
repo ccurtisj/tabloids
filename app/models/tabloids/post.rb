@@ -16,7 +16,7 @@ module Tabloids
     scope :newest_first, desc(:published_at)
     scope :published, where(:published => true)
 
-    belongs_to :category
+    belongs_to :category, class_name: 'Tabloids::Category'
 
     validates_presence_of :title
     validates_presence_of :content
