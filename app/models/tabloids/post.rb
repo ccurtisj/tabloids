@@ -4,13 +4,13 @@ module Tabloids
     include Mongoid::Document::Taggable
     include Mongoid::Timestamps
 
-    field :published,     :type => Boolean, :default => false
+    field :published,           :type => Mongoid::Boolean, :default => false
 
-    field :url_friendly_token, :type => String
-    field :content,           :type => String
-    field :title,             :type => String
+    field :url_friendly_token,  :type => String
+    field :content,             :type => String
+    field :title,               :type => String
 
-    field :published_at,  :type => Time
+    field :published_at,        :type => Time
 
     scope :for_category, ->(category){ where(:category_id => category.id) }
     scope :newest_first, desc(:published_at)
