@@ -13,8 +13,8 @@ module Tabloids
     field :published_at,        :type => Time
 
     scope :for_category, ->(category){ where(:category_id => category.id) }
-    scope :newest_first, desc(:published_at)
-    scope :published, where(:published => true)
+    scope :newest_first, -> {desc(:published_at)}
+    scope :published, -> {where(:published => true)}
 
     belongs_to :category, class_name: 'Tabloids::Category'
 

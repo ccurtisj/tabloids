@@ -1,16 +1,11 @@
-routes = lambda {
-  scope :module => "tabloids" do
+Tabloids::Engine.routes.draw do
+  resources :posts
 
-    get '/categories/:category_guid' => 'posts#index', :as => 'category'
-    get '/tags/:tag' => 'posts#index', :as => 'tag'
+  get '/categories/:category_guid' => 'posts#index', :as => 'category'
+  get '/tags/:tag' => 'posts#index', :as => 'tag'
 
-    namespace :admin do
-      resources :posts
-      resources :categories
-    end
+  namespace :admin do
     resources :posts
+    resources :categories
   end
-}
-
-Rails.application.routes.draw &routes
-Tabloids::Engine.routes.draw  &routes if Rails.env.test?
+end
